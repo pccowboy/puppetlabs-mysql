@@ -23,6 +23,17 @@ query_cache_size   = 16M
 log_error          = /var/log/mysql/error.log
 expire_logs_days   = 10
 max_binlog_size    = 100M
+
+# Suggested settings from http://projects.puppetlabs.com/projects/1/wiki/Using_Stored_Configuration
+#
+#  TODO: properly template these using facts from the host...
+# 
+#innodb_buffer_pool_size=2G
+#innodb_log_file_size=256M
+#innodb_log_buffer_size=64M
+#innodb_additional_mem_pool_size=20M
+#innodb_flush_method = O_DIRECT
+
 [mysqldump]
 quick
 quote-names
