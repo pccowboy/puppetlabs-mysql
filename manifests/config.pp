@@ -49,7 +49,7 @@ class mysql::config(
     mode    => '755',
   }
 
-  file { '/etc/mysql/my.cnf':
+  file { '/etc/my.cnf':
     content => template('mysql/my.cnf.erb'),
   }
 }
