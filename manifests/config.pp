@@ -20,7 +20,7 @@ class mysql::config(
       unless   => "mysqladmin -u root -p${root_password} status > /dev/null",
       path      => '/usr/local/sbin:/usr/bin',
       require   => [Package['mysql-server'], Service['mysqld']],
-      before    => [File['/root/.my.cnf'], File['/etc/my.cnf']]
+      before    => [File['/root/.my.cnf'], File['/etc/my.cnf']],
       notify    => Exec['mysqld-restart'],
     }
     file{'/root/.my.cnf':
