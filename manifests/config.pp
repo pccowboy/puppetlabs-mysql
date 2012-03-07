@@ -43,13 +43,16 @@ class mysql::config(
   file { '/etc/mysql':
     ensure => directory,
     mode => '755',
+    before    => File['/etc/mysql/conf.d'],
   }
   file { '/etc/mysql/conf.d':
     ensure  => directory,
     mode    => '755',
+    before    => Exec['set_mysql_rootpw'],
   }
 
   file { '/etc/my.cnf':
     content => template('mysql/my.cnf.erb'),
+    before    => Exec['set_mysql_rootpw'],
   }
 }
